@@ -6,7 +6,7 @@
 [Dockerhub](https://hub.docker.com/r/mugen0815/symfony7)
 
 
-Minimalistic Docker environment for symfony 7(https://symfony.com/) 
+Minimalistic Docker environment for Symfony 7(https://symfony.com/) 
 based on official php-apache-image (https://hub.docker.com/_/php/tags?name=apache)
 including:
 * Composer
