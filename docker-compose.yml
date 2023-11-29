@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+    php-apache:
+        build:
+            context: .
+        environment:
+            - SYMFONY_PARAMS=${SYMFONY_PARAMS}
+        volumes:
+            - type: bind
+              source: ./src
+              target: /usr/src
+        ports:
+            - '8080:80'
+
+    db:
+        image: mariadb:10.6.4-focal
+        volumes:
+            - type: volume
+              source: dbdata
+              target: /var/lib/mysql
+        environment:
+            TZ: 'Europe/Rome'
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'no'
+            MYSQL_ROOT_PASSWORD: '${MYSQL_ROOT_PASSWORD}'
+            MYSQL_USER: '${MYSQL_USER}'
+            MYSQL_PASSWORD: '${MYSQL_PASSWORD}'
+            MYSQL_DATABASE: '${MYSQL_DATABASE}'
+
+volumes:
+    dbdata:
+    
